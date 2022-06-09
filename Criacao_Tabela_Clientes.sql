@@ -1,0 +1,8 @@
+﻿CREATE TABLE CLIENTE(
+      IDCLIENTE UNIQUEIDENTIFIER        NOT NULL,
+      NOME              NVARCHAR(150)   NOT NULL,
+      EMAIL             NVARCHAR(150)   NOT NULL,
+      CPF               NVARCHAR(11)    NOT NULL,
+      DATANASCIMENTO    DATETIME        NOT NULL,
+      ATIVO             INT             NOT NULL DEFAULT(1)
+      PRIMARY KEY (IDCLIENTE))

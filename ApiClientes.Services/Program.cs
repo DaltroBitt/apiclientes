@@ -1,3 +1,5 @@
+using ApiClientes.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,14 +9,19 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//registrando as configurações do EntityFramework
+EntityFrameworkConfiguration.Register(builder);
+CorsConfiguration.Register(builder);
+SwaggerConfiguration.Register(builder);
+
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+//ativando as configurações do projeto
+CorsConfiguration.Use(app);
+SwaggerConfiguration.Use(app);
+
+
 
 app.UseAuthorization();
 
