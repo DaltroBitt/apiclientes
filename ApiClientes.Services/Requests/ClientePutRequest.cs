@@ -13,7 +13,8 @@ namespace ApiClientes.Services.Requests
         [Required(ErrorMessage = "Campo obrigatório.")]
         public string Nome { get; set; }
 
-        
+
+        [EmailAddress(ErrorMessage = "Formato de email inválido")]
         [Required(ErrorMessage = "Campo obrigatório")]
         public string Email { get; set; }
 
